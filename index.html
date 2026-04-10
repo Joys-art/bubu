@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Karina ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ccc;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+    }
+
+    .no:hover {
+      position: absolute;
+      top: calc(100% * Math.random());
+      left: calc(100% * Math.random());
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);} 
+      to {opacity: 1; transform: translateY(0);} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <h1 id="text">ada sesuatu yang mau adhan omongin... 🫣</h1>
+  <button class="yes" onclick="nextStep()">Lanjut</button>
+</div>
+
+<script>
+  let step = 0;
+
+  function nextStep() {
+    const text = document.getElementById('text');
+    const card = document.getElementById('card');
+
+    step++;
+
+    if(step === 1){
+      text.innerHTML = "Sebenarnya adhan udah lama suka sama karina 💖";
+    } else if(step === 2){
+      text.innerHTML = "menurutku karina itu spesial banget sih 🥺";
+    } else if(step === 3){
+      text.innerHTML = "Karina mau gak jadi pacarku? 🫶";
+      card.innerHTML += `
+        <br>
+        <button class='yes' onclick='yesAnswer()'>Mau ❤️</button>
+        <button class='no' onclick='noAnswer(this)'>Gak 😢</button>
+      `;
+    }
+  }
+
+  function yesAnswer(){
+    document.body.innerHTML = `
+      <div class="card">
+        <h1>YEEAAAYYY 😆💖</h1>
+        <p>Sekarang kita resmi jadian ya 🫶</p>
+        <p><b>I LOVE YOU ❤️</b></p>
+      </div>
+    `;
+  }
+
+  function noAnswer(btn){
+    alert('Yakin? 😭');
+    btn.style.position = 'absolute';
+    btn.style.top = Math.random() * window.innerHeight + 'px';
+    btn.style.left = Math.random() * window.innerWidth + 'px';
+  }
+</script>
+
+</body>
+</html>
